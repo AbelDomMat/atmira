@@ -5,6 +5,7 @@ import { ImagenComponent } from './imagen/imagen.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'imagen/:date', component: ImagenComponent }
 ];
 

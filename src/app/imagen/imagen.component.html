@@ -1,7 +1,16 @@
 <div class="wrapper">
   <div class="card">
-    <div class="container">
-      <img class="img" src={{imagenes[0].url}} alt={{imagenes[0].title}}>
+    <span class="title">
+      <h3>{{imagenes[0].title}}</h3>
+    </span>
+    <img class="img" src={{imagenes[0].url}} alt={{imagenes[0].title}}>
+    <span class="explanation">
+      <h4>{{imagenes[0].explanation}}</h4>
+    </span>
+    <div class="card-button">
+      <span class="date">
+        <h4 [routerLink]="['/dashboard']">To dashboard</h4>
+      </span>
     </div>
   </div>
 </div>

@@ -25,16 +25,11 @@ export class DashboardComponent implements OnInit {
   public getImagenes() {
     var d = new Date();
     for (let i = 0; i < 6; i++) {
-      d.setDate(d.getDate() - i);
+      d.setDate(d.getDate() - 1);
       this.dateString = this.datePipe.transform(d, 'yyyy-MM-dd')!;
       this.nasaService.getImagen(this.dateString).subscribe((data: Imagen) => {
-        this.imagenes.push(data);
+        this.imagenes.unshift(data);
       });
     }
-    this.imagenes = this.imagenes.sort(function (a, b) {
-      var dateA = new Date(a.date).getTime();
-      var dateB = new Date(b.date).getTime();
-      return dateA < dateB ? -1 : 1;
-    });
   }
 }
