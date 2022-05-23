@@ -5,7 +5,7 @@ import { ImagenComponent } from './imagen/imagen.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'imagen', component: ImagenComponent }
+  { path: 'imagen/:date', component: ImagenComponent }
 ];
 
 @NgModule({

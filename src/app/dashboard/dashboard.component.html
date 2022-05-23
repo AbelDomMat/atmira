@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="card" *ngFor="let aux of imagenes">
-    <div class="container">
+    <div class="container" [routerLink]="['/imagen', aux.date]">
       <img class="img" src={{aux.url}} alt={{aux.title}}>
     </div>
   </div>
