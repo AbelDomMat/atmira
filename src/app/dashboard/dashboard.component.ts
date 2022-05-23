@@ -31,5 +31,10 @@ export class DashboardComponent implements OnInit {
         this.imagenes.push(data);
       });
     }
+    this.imagenes = this.imagenes.sort(function (a, b) {
+      var dateA = new Date(a.date).getTime();
+      var dateB = new Date(b.date).getTime();
+      return dateA < dateB ? -1 : 1;
+    });
   }
 }
