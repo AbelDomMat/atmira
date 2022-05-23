@@ -19,13 +19,17 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.imagenes = [];
-    this.dateString = this.datePipe.transform(this.todayDate, 'yyyy-MM-dd')!;
     this.getImagenes();
   }
 
   public getImagenes() {
-    return this.nasaService.getImagenes(this.dateString).subscribe((data: Imagen) => {
-      this.imagenes.push(data);
-    });
+    var d = new Date();
+    for (let i = 0; i < 6; i++) {
+      d.setDate(d.getDate() - i);
+      this.dateString = this.datePipe.transform(d, 'yyyy-MM-dd')!;
+      this.nasaService.getImagen(this.dateString).subscribe((data: Imagen) => {
+        this.imagenes.push(data);
+      });
+    }
   }
 }

@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 
 export class NasaApiService {
   private demoKey: String = 'zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb';
-  private urlBase: String = 'https://api.nasa.gov/planetary/apod?api_key=zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb&date=';
+  private urlBase: String = 'https://api.nasa.gov/planetary/apod?api_key=' + this.demoKey + '&date=';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class NasaApiService {
     }),
   };
 
-  getImagenes(date: string): Observable<Imagen> {
+  getImagen(date: string): Observable<Imagen> {
     return this.http
       .get<Imagen>(this.urlBase + date)
       .pipe(retry(1), catchError(this.handleError));
