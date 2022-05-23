@@ -1,0 +1,11 @@
+<div class="content" role="main">
+  <div class="card-container" *ngFor="let aux of imagenes; index as i; first as isFirst">
+    <a routerLink="/imagen/{{aux.date}}">
+      <span class="card">
+        <span>
+          Learn Angular
+        </span>
+      </span>
+    </a>
+  </div>
+</div>
